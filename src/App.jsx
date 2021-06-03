@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import AjaxApi from './AjaxApi'
+import AjaxApi from "./AjaxApi";
 import logo from "./logo.svg";
 import "./App.css";
 
@@ -78,7 +78,7 @@ class Game extends React.Component {
   jumpTo(step) {
     this.setState({
       stepNumber: step,
-      xIsNext: (step % 2) === 0,
+      xIsNext: step % 2 === 0,
     });
   }
 
@@ -153,14 +153,27 @@ function App() {
 
   return (
     <div className="App container mx-auto">
-      <header className="App-header">
-        
+      <header className="border-2 border-green-100 p-5 rounded-md mt-4">
         <p>Hola Vite junto a React!</p>
-        <p>
-          <button className="bg-pink-500 text-white py-2 px-10 rounded-md focus:outline-none" onClick={decrement}>decrement --</button>
-          <button className="bg-green-500 text-white py-2 px-10 rounded-md focus:outline-none ml-2" onClick={increment}>increment ++</button>
-        </p>
-        <p>{count}</p>
+        <div>
+          <button
+            className="bg-pink-500 text-white py-2 px-10 rounded-md focus:outline-none"
+            onClick={decrement}
+          >
+            decrement --
+          </button>
+          <button
+            className="bg-green-500 text-white py-2 px-10 rounded-md focus:outline-none ml-2"
+            onClick={increment}
+          >
+            increment ++
+          </button>
+        </div>
+        <div className="my-5">
+          <span className={`py-2 px-5 shadow-md rounded-lg ${count ? 'text-green-500' : 'text-red-500'} ` } >{count}</span>
+
+        </div>
+
         <p>
           Edita <code>App.jsx</code> y guarda
         </p>
